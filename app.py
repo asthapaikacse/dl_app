@@ -58,7 +58,11 @@ st.markdown("""
 # ---------------- LOAD MODEL ----------------
 @st.cache_resource
 def load_model():
-    checkpoint = torch.load(MODEL_PATH, map_location=DEVICE)
+   checkpoint = torch.load(
+        MODEL_PATH,
+        map_location=DEVICE,
+        weights_only=False   
+    )
 
     model = ImprovedStrokeViT(
         num_labels=2,
