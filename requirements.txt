@@ -1,6 +1,6 @@
-streamlit==1.45.0
-torch==2.9.0
-torchvision==0.24.0
+streamlit
+torch
+torchvision
 transformers
 accelerate
 numpy
@@ -9,7 +9,7 @@ openpyxl
 matplotlib
 seaborn
 scikit-learn
-Pillow==11.0.0
+Pillow
 opencv-python-headless
 tqdm
 gdown
