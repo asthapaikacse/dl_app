@@ -57,8 +57,20 @@ st.markdown("""
 
 # ---------------- LOAD MODEL ----------------
 @st.cache_resource
+@st.cache_resource
 def load_model():
-    checkpoint = torch.load(MODEL_PATH,map_location=DEVICE,weights_only=False)   
+    import numpy as np
+    import torch.serialization
+
+    # 🔥 Allow numpy scalar (required for PyTorch 2.9)
+    torch.serialization.add_safe_globals([np.core.multiarray.scalar])
+
+    checkpoint = torch.load(
+        MODEL_PATH,
+        map_location=DEVICE,
+        weights_only=False   # 🔥 MUST
+    )
+
     model = ImprovedStrokeViT(
         num_labels=2,
         unfreeze_layers=6,
