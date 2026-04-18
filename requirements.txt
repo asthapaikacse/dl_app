@@ -9,7 +9,7 @@ openpyxl
 matplotlib
 seaborn
 scikit-learn
-Pillow
+Pillow==11.0.0
 opencv-python-headless
 tqdm
 gdown
